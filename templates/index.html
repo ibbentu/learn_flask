@@ -141,7 +141,21 @@
         <h1>Hello World!</h1>
         <p>This is my first webpage!!!</p>
         <p>Flask로 만든 멋진 웹 페이지입니다</p>
+        <p>My name is {{ first_name }}</p>
+        <p>{{ stuff|striptags }}</p>
         
+        <h3>Favorite Pizzas:</h3>
+        {% for topping in favorite_pizza %}
+            {% if topping == 41 %}
+                {{ topping + 100 }}<br/>
+            {% else %}
+                {{ topping }}<br/>
+            {% endif %}
+        {% endfor %}
+        
+        <br/><br/>
+        {{ favorite_pizza.0|reverse }}
+
         <a href="#" class="btn">시작하기</a>
         
         <div class="features">

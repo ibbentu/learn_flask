@@ -5,12 +5,16 @@ app = Flask(__name__)
 
 # Create a route decorator
 @app.route('/')
-
-# def index():
-#     return "<h1>Hello World!</h1>"
 def index():
-    return render_template('index.html')
+    first_name = "John"
+    stuff = "This is <strong>Bold</strong> Text"
+
+    favorite_pizza = ["Pepperoni", "Cheese", "Mushroom", 41]
+    return render_template('index.html', 
+                           first_name=first_name, 
+                           stuff=stuff,
+                           favorite_pizza=favorite_pizza)
 
 @app.route('/user/<name>')
 def user(name):
-    return "<h1>Hello {}</h1>".format(name)
+    return render_template('user.html', user_name=name)
